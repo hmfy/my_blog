@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/guestbook.css">
+    <link rel="stylesheet" href="css/blog_detail.css">
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a class="title" href="#">我的个人博客 | 技术博客</a>
+            <ul class="menu">
+                <li><a href="/">首页</a></li>
+                <li><a href="/sitemap.html">地图</a></li>
+                <li><a href="/">关于</a></li>
+                <li><a href="/">留言</a></li>
+            </ul>
+            <div class="search_bar">
+                <input type="text" placeholder="输入关键词查找">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="content_left">
+            <div class="description">
+                <p>欢迎11111</p>
+                <p>欢迎222222222</p>
+                <p>欢迎33333333</p>
+            </div>
+            <div class="blog_comments" id="blog_comments">
+                <span class="blog_comments_msg">当前文章: 有{{getTotal}}条留言</span>
+                <div class="blog_comment" v-for="item in comments">
+                    <span><b>{{item.user_name}}</b>: {{item.options}} 发表于 {{item.ctime}} <a @click="reply(item.id, item.user_name)">[回复]</a> </span>
+                    <div>{{item.comments}}</div>
+                </div>
+            </div>
+            <div class="send_comments" id="send_comments">
+                <span>发表评论</span>
+                <div>
+                    <input type="hidden" id="comment_reply" value="-1">
+                    <input type="hidden" id="comment_reply_name" value="0">
+                    <input type="text" placeholder="昵称" id="comment_name">
+                    <input type="text" placeholder="邮箱(评论被回复时你能收到通知)" id="comment_email">
+                </div>
+                <div>
+                    <textarea cols="30" rows="10" placeholder="无意义内容可能不做回复" id="comment_content"></textarea>
+                </div>
+                <div>
+                    <input type="text" placeholder="验证码" id="comment_code">
+                    <span v-html="vcode" @click="changeCode()"></span>
+                </div>
+                <button @click="sendComment()">提交评论</button>
+            </div>
+        </div>
+        <div class="content_right">
+            <div class="right_module" id="random_tags">
+                <div>随机标签</div>
+                <a href="http://" v-for="item in tags" :style="{color: randomColor(), fontSize: randomSize()}">{{ item }}</a>
+            </div>
+            <div class="right_module" id="new_hot">
+                <div>最近热门</div>
+                <ul>
+                    <li v-for="temp in titleList">
+                        <a :href="temp.link">{{ temp.title }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right_module" id="new_comments">
+                <div>最新评论</div>
+                <ul>
+                    <li v-for="item in commentsList">
+                        <div>
+                            <span>{{ item.name }}</span>
+                            <span class="pull_right">{{ item.date }}</span>
+                        </div>
+                        <p>{{ item.comment }}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="right_module">
+                <div>友情链接</div>
+                <span><a href="">挨踢茶馆</a></span>
+                <span><a href="">挨踢茶馆</a></span>
+                <span><a href="">挨踢茶馆</a></span>
+                <span><a href="">挨踢茶馆</a></span>
+                <span><a href="">挨踢茶馆</a></span>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <ul>
+            <li>javascript</li>
+            <li>html</li>
+            <li>css</li>
+            <li>vue</li>
+            <li>react</li>
+            <li>angular</li>
+            <li>ext.js</li>
+            <li>node.js</li>
+            <li>jquery</li>
+            <li>c++</li>
+            <li>java</li>
+            <li>.net</li>
+        </ul>
+        <p>Copyright®2010-2017阿里巴巴与四十大盗</p>
+    </footer>
+    <script src="./js/base.js"></script>
+    <script src="./js/guestbook.js"></script>
+</body>
+
+</html>

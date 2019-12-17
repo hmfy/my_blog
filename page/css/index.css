@@ -1,0 +1,83 @@
+.every_day {
+    background: white;
+    box-sizing: border-box;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 3px 4px 3px #888888;
+    padding: 10px 15px;
+}
+
+.every_day::before {
+    font-family: "myIcon";
+    content: "\e122";
+    font-size: 12px;
+    color: slateblue;
+    position: relative;
+    display: block;
+    left: 70px;
+    height: 0px;
+}
+
+.every_day > span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: slateblue;
+}
+
+.every_day > p:last-child {
+    /* text-align: right; */
+}
+
+.article_list {
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.article {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 3px 4px 3px #888888;
+    text-align: left;
+    background: white;
+    margin-top: 15px;
+}
+
+.article_title {
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+    color: #13102b;
+    padding: 20px 0px 5px 10px;
+}
+
+.article_title:hover {
+    color: #337ab7;
+}
+
+.article_content {
+    font-size: 14px;
+    text-align: left;
+    color: #13102b;
+    padding: 0px 10px 20px 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+
+/*
+    超出打点
+    height: 85px;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;*/
+}
+
+.article_foot {
+    color: #eeeeee;
+    background: #1f1f1f;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
